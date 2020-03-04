@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="java.util.List"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,7 +97,7 @@ View More </div>
   <thead>
     <tr>
       <th scope="col">Type</th>
-      <th scope="col">Quantity........</th>
+      <th scope="col">Quantity.............</th>
       <th scope="col">Price/Ticket</th>
       <th scope="col">Total</th>
     </tr>
@@ -110,49 +111,20 @@ View More </div>
               <div class="input-group bootstrap-touchspin">
                 <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-down decrementbtn2" type="button">-</button></span>
                 
-                <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" value="0" id="srCitizen" name="ddSenior" class="form-control" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" value="0" id="adult" name="ddSenior" class="form-control" style="display: block;" disabled="disabled"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
                                              
                 <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-up incrementbtn3" type="button">+</button></span></div>
             </div>
           
 
-            <script type="text/javascript">
+             <script type="text/javascript">
   $(document).ready(function()
   {
   var incrementvalue=0;
   var incrementvalue1=0;
   var incrementvalue2=0;
     console.log("script loaded");
-    $(".incrementbtn1").click(function()
-    {
-      //console.log("test");
-      incrementvalue++;
-      $("#Adult").val(incrementvalue);
-    });
-
-    $(".decrementbtn").click(function()
-    {
-      //console.log("test");
-      incrementvalue--;
-      $("#Adult").val(incrementvalue);
-    });
-
-
-
-    $(".incrementbtn2").click(function()
-    {
-      console.log("test");
-      incrementvalue1++;
-      $("#Child").val(incrementvalue1);
-    });
-
-    $(".decrementbtn1").click(function()
-    {
-      console.log("test");
-      incrementvalue1--;
-      $("#Child").val(incrementvalue1);
-    });
-
+ 
 
 
 
@@ -160,7 +132,13 @@ View More </div>
     {
       console.log("test");
       incrementvalue2++;
-      $("#srCitizen").val(incrementvalue2);
+      $("#adult").val(incrementvalue2);
+      var num11 = $("#adult").val();
+      var num21 = 5;
+      var answer1 = parseInt(num11) * parseInt(num21);
+      
+$("#answer").val(answer1);
+
     });
 
 
@@ -169,41 +147,40 @@ View More </div>
     {
       console.log("test");
       incrementvalue2--;
-      $("#srCitizen").val(incrementvalue2);
+      $("#adult").val(incrementvalue2);
+      var num1 = $("#adult").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer").val(answer);
+      
     });
 
   });
 </script>
+
                                          
       </td>
       <td>
          345                       
-      </td>
-      <td>₹660</td>
+      </td>	
+      <td><input  id="answer" name="result" value="0" readonly="readonly" /> </td>
+     
     </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+   <td><button target="_blank" type="submit" class="btn btn-primary">select</button></td>
     
+    </tr>
     
   </tbody>
 </table>
 </div>
 </div>
 
-    <div ><table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">Total</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">235</th>
-    </tr>
-    <th scope="row"><button target="_blank" type="submit" class="btn btn-primary">select</button></th>
-    
-    
-  </tbody>
-</table></div>
-
+  
 
   </div>
   </form>
@@ -223,7 +200,7 @@ REGULAR TICKET WATER KINGDOM : ONE DAY VISIT TO PARK</div>
   <thead>
     <tr>
       <th scope="col">Type</th>
-      <th scope="col">Qty</th>
+      <th scope="col">Quantity.............</th>
       <th scope="col">Price/Ticket</th>
       <th scope="col">Total</th>
     </tr>
@@ -231,27 +208,235 @@ REGULAR TICKET WATER KINGDOM : ONE DAY VISIT TO PARK</div>
   <tbody>
     <tr>
       <th scope="row">Adult</th>
-      <td>₹1035</td>
+      <td>
+       <div class="visitorCategoryCount">
+              <div class="input-group bootstrap-touchspin">
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-down decrementbtn21" type="button">-</button></span>
+                
+                <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" value="0" id="adult1" name="ddSenior" class="form-control" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                             
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-up incrementbtn31" type="button">+</button></span></div>
+            </div>
+          
+
+            <script type="text/javascript">
+  $(document).ready(function()
+  {
+  var incrementvalue=0;
+  var incrementvalue1=0;
+  var incrementvalue2=0;
+    console.log("script loaded");
+  
+
+
+
+    $(".incrementbtn31").click(function()
+    {
+      console.log("test");
+      incrementvalue2++;
+      $("#adult1").val(incrementvalue2);
+      var num1 = $("#adult1").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer1").val(answer);
+    });
+
+
+
+    $(".decrementbtn21").click(function()
+    {
+      console.log("test");
+      incrementvalue2--;
+      $("#adult1").val(incrementvalue2);
+      var num1 = $("#adult1").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer1").val(answer);
+    });
+
+  });
+</script>
+      
+      </td>
       <td>₹660</td>
-      <td>₹660</td>
+      <td><output id="answer1">0</output></td>
     </tr>
    <tr>
       <th scope="row">Child</th>
-      <td>₹1035</td>
+      <td>
+ <div class="visitorCategoryCount">
+              <div class="input-group bootstrap-touchspin">
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-down decrementbtn230" type="button">-</button></span>
+                
+                <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" value="0" id="c" name="ddSenior" class="form-control" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                             
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-up incrementbtn330" type="button">+</button></span></div>
+            </div>
+          
+
+            <script type="text/javascript">
+  $(document).ready(function()
+  {
+  var incrementvalue=0;
+  var incrementvalue1=0;
+  var incrementvalue2=0;
+    console.log("script loaded");
+  
+
+
+
+    $(".incrementbtn330").click(function()
+    {
+      console.log("test");
+      incrementvalue2++;
+      $("#c").val(incrementvalue2);
+      var num1 = $("#c").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      $("#answer0").val(answer);
+      
+      
+      
+      
+      /* var a=$('#answer1').val();
+      var b=parseInt(a)+answer;
+      $("#ans").val(b); */
+    });
+
+
+
+    $(".decrementbtn230").click(function()
+    {
+      console.log("test");
+      incrementvalue2--;
+      $("#c").val(incrementvalue2);
+      var num1 = $("#c").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer0").val(answer);
+    });
+
+  });
+</script>
+      
+      </td>
+      
+      
       <td>₹660</td>
-      <td>₹660</td>
+      <td><output id="answer0">0</output></td>
     </tr><tr>
       <th scope="row">Sr Citizen</th>
-      <td>₹1035</td>
+      <td>
+       <div class="visitorCategoryCount">
+              <div class="input-group bootstrap-touchspin">
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-down decrementbtn23" type="button">-</button></span>
+                
+                <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" value="0" id="srCitizen11" name="ddSenior" class="form-control" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                             
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-up incrementbtn33" type="button">+</button></span></div>
+            </div>
+          
+
+            <script type="text/javascript">
+  $(document).ready(function()
+  {
+  var incrementvalue=0;
+  var incrementvalue1=0;
+  var incrementvalue2=0;
+    console.log("script loaded");
+  
+
+
+
+    $(".incrementbtn33").click(function()
+    {
+      console.log("test");
+      incrementvalue2++;
+      $("#srCitizen11").val(incrementvalue2);
+      var num1 = $("#srCitizen11").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer3").val(answer);
+    });
+
+
+
+    $(".decrementbtn23").click(function()
+    {
+      console.log("test");
+      incrementvalue2--;
+      $("#srCitizen11").val(incrementvalue2);
+      var num1 = $("#srCitizen11").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer3").val(answer);
+    });
+
+  });
+</script>
+      
+      </td>
       <td>₹660</td>
-      <td>₹660</td>
+      <td><output id="answer3">0</output></td>
     </tr> 
     
   </tbody>
 </table>
 </div>
 </div>
+ <div><table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row"><button type="button" class="btn btn-primary abc">confirm</button></th>
+      
+        <script type="text/javascript">
+  $(document).ready(function()
+  {
+    console.log("script loaded");
+  
 
+
+
+    $(".abc").click(function()
+    {
+     
+    	
+    	
+    	
+    	
+    	
+      var num1 = $("#answer1").val();
+      var num2 = $("#answer0").val();
+      var num3 = $("#answer3").val();
+      
+      var answer = parseInt(num1) + parseInt(num2) + parseInt(num3)  ;
+      
+$("#total").val(answer);
+    });
+
+
+
+   
+
+  });
+</script>
+      
+    </tr>
+   
+    
+    
+  </tbody>
+</table></div>
     <div><table class="table table-hover">
   <thead>
     <tr>
@@ -260,7 +445,7 @@ REGULAR TICKET WATER KINGDOM : ONE DAY VISIT TO PARK</div>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">343</th>
+      <th scope="row"><output id="total"></output></th>
     </tr>
     <th scope="row"><button type="submit" class="btn btn-primary">select</button></th>
     
@@ -287,7 +472,7 @@ Combined Ticket: One day Visit to EsselWorld and Water Kingdom. </div>
   <thead>
     <tr>
       <th scope="col">Type</th>
-      <th scope="col">Qty</th>
+      <th scope="col">Quantity.............</th>
       <th scope="col">Price/Ticket</th>
       <th scope="col">Total</th>
     </tr>
@@ -295,15 +480,120 @@ Combined Ticket: One day Visit to EsselWorld and Water Kingdom. </div>
   <tbody>
     <tr>
       <th scope="row">Adult</th>
-      <td>₹1035</td>
+      <td>
+      <div class="visitorCategoryCount">
+              <div class="input-group bootstrap-touchspin">
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-down decrementbtn211" type="button">-</button></span>
+                
+                <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" value="0" id="adult11" name="ddSenior" class="form-control" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                             
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-up incrementbtn311" type="button">+</button></span></div>
+            </div>
+          
+
+            <script type="text/javascript">
+  $(document).ready(function()
+  {
+  var incrementvalue=0;
+  var incrementvalue1=0;
+  var incrementvalue2=0;
+    console.log("script loaded");
+  
+
+
+
+    $(".incrementbtn311").click(function()
+    {
+      console.log("test");
+      incrementvalue2++;
+      $("#adult11").val(incrementvalue2);
+      var num1 = $("#adult11").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer4").val(answer);
+      
+    });
+
+
+
+    $(".decrementbtn211").click(function()
+    {
+      console.log("test");
+      incrementvalue2--;
+      $("#adult11").val(incrementvalue2);
+      var num1 = $("#adult11").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer4").val(answer);
+    });
+
+  });
+</script>
+      
+      
+      </td>
       <td>₹660</td>
-      <td>₹660</td>
+      <td><output id="answer4"></output></td>
     </tr>
      <tr>
       <th scope="row">Child</th>
-      <td>₹1035</td>
+      <td>
+      
+       <div class="visitorCategoryCount">
+              <div class="input-group bootstrap-touchspin">
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-down decrementbtn222" type="button">-</button></span>
+                
+                <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" value="0" id="child2" name="ddSenior" class="form-control" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                             
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-up incrementbtn322" type="button">+</button></span></div>
+            </div>
+          
+
+            <script type="text/javascript">
+  $(document).ready(function()
+  {
+  var incrementvalue=0;
+  var incrementvalue1=0;
+  var incrementvalue2=0;
+    console.log("script loaded");
+  
+
+
+
+    $(".incrementbtn322").click(function()
+    {
+      console.log("test");
+      incrementvalue2++;
+      $("#child2").val(incrementvalue2);
+      var num1 = $("#child2").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer5").val(answer);
+    });
+
+
+
+    $(".decrementbtn222").click(function()
+    {
+      console.log("test");
+      incrementvalue2--;
+      $("#child2").val(incrementvalue2);
+      var num1 = $("#child2").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer5").val(answer);
+    });
+
+  });
+</script>
+      
+      </td>
       <td>₹660</td>
-      <td>₹660</td>
+      <td><output id="answer5"></output></td>
     </tr>
     
   </tbody>
@@ -345,7 +635,7 @@ Privilege entry to park & no queue to rides. Access to all Adult/Kids/Family Wat
   <thead>
     <tr>
       <th scope="col">Type</th>
-      <th scope="col">Qty</th>
+      <th scope="col">Quantity.............</th>
       <th scope="col">Price/Ticket</th>
       <th scope="col">Total</th>
     </tr>
@@ -353,15 +643,120 @@ Privilege entry to park & no queue to rides. Access to all Adult/Kids/Family Wat
   <tbody>
     <tr>
       <th scope="row">Adult</th>
-      <td>₹1035</td>
+     
+      <td>
+      <div class="visitorCategoryCount">
+              <div class="input-group bootstrap-touchspin">
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-down decrementbtn2112" type="button">-</button></span>
+                
+                <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" value="0" id="adult112" name="ddSenior" class="form-control" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                             
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-up incrementbtn3112" type="button">+</button></span></div>
+            </div>
+          
+
+            <script type="text/javascript">
+  $(document).ready(function()
+  {
+  var incrementvalue=0;
+  var incrementvalue1=0;
+  var incrementvalue2=0;
+    console.log("script loaded");
+  
+
+
+
+    $(".incrementbtn3112").click(function()
+    {
+      console.log("test");
+      incrementvalue2++;
+      $("#adult112").val(incrementvalue2);
+      var num1 = $("#adult112").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer6").val(answer);
+    });
+
+
+
+    $(".decrementbtn2112").click(function()
+    {
+      console.log("test");
+      incrementvalue2--;
+      $("#adult112").val(incrementvalue2);
+      var num1 = $("#adult112").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer6").val(answer);
+    });
+
+  });
+</script>
+      
+      
+      </td>
       <td>₹660</td>
-      <td>₹660</td>
+      <td><output id="answer6"></output></td>
     </tr>
      <tr>
       <th scope="row">Child</th>
-      <td>₹1035</td>
+      <td>
+ <div class="visitorCategoryCount">
+              <div class="input-group bootstrap-touchspin">
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-down decrementbtn2223" type="button">-</button></span>
+                
+                <span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" value="0" id="child23" name="ddSenior" class="form-control" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span>
+                                             
+                <span class="input-group-btn"><button class="btn btn-primary btn-default bootstrap-touchspin-up incrementbtn3223" type="button">+</button></span></div>
+            </div>
+          
+
+            <script type="text/javascript">
+  $(document).ready(function()
+  {
+  var incrementvalue=0;
+  var incrementvalue1=0;
+  var incrementvalue2=0;
+    console.log("script loaded");
+  
+
+
+
+    $(".incrementbtn3223").click(function()
+    {
+      console.log("test");
+      incrementvalue2++;
+      $("#child23").val(incrementvalue2);
+      var num1 = $("#child23").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer7").val(answer);
+    });
+
+
+
+    $(".decrementbtn2223").click(function()
+    {
+      console.log("test");
+      incrementvalue2--;
+      $("#child23").val(incrementvalue2);
+      var num1 = $("#child23").val();
+      var num2 = 5;
+      var answer = parseInt(num1) * parseInt(num2);
+      
+$("#answer7").val(answer);
+    });
+
+  });
+</script>
+      
+      
+      </td>
       <td>₹660</td>
-      <td>₹660</td>
+      <td><output id="answer7"></output></td>
     </tr>
     
   </tbody>

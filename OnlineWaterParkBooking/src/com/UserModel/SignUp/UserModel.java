@@ -6,13 +6,17 @@ public class UserModel {
 	private String email;
 	private String password;
 	private String uname;
-	private double mobile;
+	private int mobile;
 	private int id;
+	private int idd;
 	private String Admissioncriteria;
 	private String Adult;
 	private String child;
 	private String srcitizen;
-
+	private String days;
+	private String hours;	
+	private int iid;
+	
 	public int getId() {
 		return id;
 	}
@@ -69,10 +73,10 @@ public class UserModel {
 		this.password = password;
 	}
 	
-	public double getMobile() {
+	public int getMobile() {
 		return mobile;
 	}
-	public void setMobile(double mobile) {
+	public void setMobile(int mobile) {
 		this.mobile = mobile;
 	}
 	public String getUname() {
@@ -80,6 +84,30 @@ public class UserModel {
 	}
 	public void setUname(String uname) {
 		this.uname = uname;
+	}
+	public String getDays() {
+		return days;
+	}
+	public void setDays(String days) {
+		this.days = days;
+	}
+	public String getHours() {
+		return hours;
+	}
+	public void setHours(String hours) {
+		this.hours = hours;
+	}
+	public int getIid() {
+		return iid;
+	}
+	public void setIid(int iid) {
+		this.iid = iid;
+	}
+	public int getIdd() {
+		return idd;
+	}
+	public void setIdd(int idd) {
+		this.idd = idd;
 	}
 
 

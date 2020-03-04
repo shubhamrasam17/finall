@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+        <%@page import="java.sql.*" %>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,20 +35,41 @@
       <th scope="col">
 DAYS</th>
       <th scope="col">OPERATIONAL HOURS</th>
-    
+     
     </tr>
   </thead>
-  <tbody>
+  <%
+  try {
+	  Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+	  String user="sa";
+		String pwd="sasa";
+		String connectionUrl = "jdbc:sqlserver://LAPTOP-GET5TI17;database=OnlineWaterParkBooking;";
+		Connection conn = DriverManager.getConnection(connectionUrl, user, pwd);
+		 Statement stmt = conn.createStatement();
+		 ResultSet rs=stmt.executeQuery("select * from park_timing");
+		 while(rs.next())
+		 {
+%>			
+
+			 
+		 
+		 
+
+ 
+  
     <tr>
-      <td>02nd Jan 2020 to 05th Jan 2020</td>
-      <td>10:00 AM to 07:00 PM</td>
+      <td><%=rs.getString(2) %></td>
+      <td><%=rs.getString(3) %></td>
     </tr>
-    <tr>
-      <td>06th Jan 2020 till further notice</td>
-      <td>10:00 AM to 07:00 PM</td>
-    </tr>
-   <th>• Park timings are subject to change as per management decision.</th> 
-  </tbody>
+  <%
+  }
+  }
+  catch(Exception e){
+e.printStackTrace();	  
+  }
+  
+  %>  
+  
 </table>
 </div>
 </body>

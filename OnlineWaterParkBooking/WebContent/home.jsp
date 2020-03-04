@@ -204,7 +204,6 @@ html,body {
 </style>
 </head>
 <body>
-<div>
 <div class="bs-example">
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div>
@@ -238,6 +237,24 @@ html,body {
   <form method="post" action="tickets.jsp">
     <h5 class="card-title text-center">BOOK TICKETS</h5>
     <div class="container">
+        <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+    </div>
+    
     <div class="row">
       <div class="col-xs-2 text-center">
             <div class="visitorCategory"><label for="Adult">Adult</label></div>
@@ -359,6 +376,7 @@ html,body {
 
 
 </div>
+</div>
 <div>
   <div class="parallax"></div>
     <div class="container-lg">
@@ -434,32 +452,30 @@ function myFunction() {
   <div class="col">
     <h1>Company</h1>
     <ul>
-      <li>About</li>
-      <li>Mission</li>
+      <a href="aboutus.jsp"><li>About US</li></a>
+    
   
     </ul>
   </div>
   <div class="col">
     <h1>Products</h1>
     <ul>
-      <li>About</li>
-      <li>Mission</li>
+      <a href="copyright.jsp"><li>copyright</li></a>
   
     </ul>
   </div>
   <div class="col">
     <h1>Accounts</h1>
     <ul>
-      <li>About</li>
-      <li>Mission</li>
+       <a href="aboutus.jsp"><li>About US</li></a>
+    
     
     </ul>
   </div>
   <div class="col">
     <h1>Resources</h1>
     <ul>
-      <li>Webmail</li>
-      <li>Redeem code</li>
+      <a href="awards.jsp"><li>Awards</li></a>
      
     </ul>
   </div>

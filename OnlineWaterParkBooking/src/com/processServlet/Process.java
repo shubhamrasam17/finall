@@ -57,7 +57,33 @@ public class Process extends HttpServlet {
 	            	UserLogin(request, response);
 	            	
 	                break;
-	             
+	                
+
+	            case "/addentry":
+	            	//System.out.println("inside edit Records");
+	            	addentryRecord(request, response);
+	                break;
+	            
+	            case "/addtiming":
+	            	//System.out.println("inside edit Records");
+	            	addparktiming(request, response);
+	                break;
+    
+
+	            case "/edit":
+	            	//System.out.println("inside edit Records");
+	            	UpdateRecord(request, response);
+	                break;
+
+	            case "/editrates":
+	            	//System.out.println("inside edit Records");
+	            	Updaterates(request, response);
+	                break;
+
+	            case "/editparktiming":
+	            	System.out.println("inside edit Records");
+	            	Updatetime(request, response);
+	                break;
 
 	            case "/Admin":
 	            	System.out.println("inside login Records");
@@ -78,6 +104,8 @@ public class Process extends HttpServlet {
 	}
 	
 	
+	
+
 	
 
 	/**
@@ -143,8 +171,218 @@ public class Process extends HttpServlet {
 		
 }
 
-	
+	private void addentryRecord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+		
 
+		UserModel model=new UserModel();
+		
+		
+		String addmission=request.getParameter("addmission");
+		String adult=request.getParameter("adult");
+		String child=request.getParameter("child");
+		String citizen=request.getParameter("citizen");
+		
+		model.setAdmissioncriteria(addmission);
+		model.setAdult(adult);
+		model.setChild(child);
+		model.setSrcitizen(citizen);
+	
+		
+		IDAO mydao=new DB_Connection();
+		
+		if(mydao.addentryrate(model))
+		{
+			/*
+			 * RequestDispatcher req=request.getRequestDispatcher(
+			 * "http://localhost:8080/OnlineWaterParkBooking/home.jsp");
+			 * req.forward(request, response);
+			 */ 
+			
+		out.print("<script type='text/javascript'>");
+		out.print(" window.location='http://localhost:8080/OnlineWaterParkBooking/edit_entry.jsp' ");
+
+		
+		out.print("</script >");
+		
+		
+		}
+		else
+		{
+			System.out.println(" insertion Failed");
+		}
+		
+		
+	}
+	
+	private void addparktiming(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+		
+
+		UserModel model=new UserModel();
+		
+		
+		String days=request.getParameter("days");
+		String operational_hours=request.getParameter("operational_hours");
+		
+		
+		model.setDays(days);
+		model.setHours(operational_hours);
+	
+		
+		IDAO mydao=new DB_Connection();
+		
+		if(mydao.addtiming(model))
+		{
+			/*
+			 * RequestDispatcher req=request.getRequestDispatcher(
+			 * "http://localhost:8080/OnlineWaterParkBooking/home.jsp");
+			 * req.forward(request, response);
+			 */ 
+			
+		out.print("<script type='text/javascript'>");
+		out.print(" window.location='http://localhost:8080/OnlineWaterParkBooking/park_timing.jsp' ");
+
+		
+		out.print("</script >");
+		
+		
+		}
+		else
+		{
+			System.out.println(" insertion Failed");
+		}
+		
+		
+	}
+	
+	
+	private void  UpdateRecord(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
+	{
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+
+		UserModel model=new UserModel();
+		
+		int id=Integer.parseInt(request.getParameter("id"));
+		String fname=request.getParameter("fname");
+		String lname=request.getParameter("lname");
+		String email=request.getParameter("email");
+		String uname=request.getParameter("uname");
+
+		model.setId(id);
+		model.setFname(fname);
+		model.setLname(lname);
+		model.setEmail(email);
+		model.setUname(uname);
+	
+		
+		
+		IDAO mydao=new DB_Connection();	
+		mydao.editRecords(model);
+		
+		
+		/*
+		 * RequestDispatcher rd=request.getRequestDispatcher(
+		 * "http://localhost:8091/CRUD_UsingTDD/index.jsp"); rd.include(request,
+		 * response);
+		 */
+		
+		out.print("<script type='text/javascript'>");
+		
+		out.print(" window.location='http://localhost:8080/OnlineWaterParkBooking/viewcustomer.jsp'");
+		
+		out.print("</script>");
+	
+		
+		
+		
+	}
+
+
+	private void  Updatetime(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
+	{
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+
+		UserModel model=new UserModel();
+		
+		int id=Integer.parseInt(request.getParameter("id"));
+		String days=request.getParameter("days");
+		String hours=request.getParameter("hours");
+		
+
+		model.setIid(id);
+		model.setDays(days);
+		model.setHours(hours);
+	
+		
+		
+		IDAO mydao=new DB_Connection();	
+		mydao.edittime(model);
+		
+		
+		/*
+		 * RequestDispatcher rd=request.getRequestDispatcher(
+		 * "http://localhost:8091/CRUD_UsingTDD/index.jsp"); rd.include(request,
+		 * response);
+		 */
+		
+		out.print("<script type='text/javascript'>");
+		
+		out.print(" window.location='http://localhost:8080/OnlineWaterParkBooking/park_timing.jsp'");
+		
+		out.print("</script>");
+	
+		
+		
+		
+	}
+
+	
+	private void  Updaterates(HttpServletRequest request,HttpServletResponse response)throws ServletException,IOException
+	{
+		response.setContentType("text/html");
+		PrintWriter out=response.getWriter();
+
+		UserModel model=new UserModel();
+		int id=Integer.parseInt(request.getParameter("id"));
+		String ad=request.getParameter("ad");
+		String adult=request.getParameter("adult");
+		String child=request.getParameter("child");
+		String cit=request.getParameter("cit");
+
+		model.setId(id);
+		model.setAdmissioncriteria(ad);
+		model.setAdult(adult);
+		model.setChild(child);
+		model.setSrcitizen(cit);
+	
+		
+		
+		IDAO mydao=new DB_Connection();	
+		mydao.editRates(model);
+		
+		
+		/*
+		 * RequestDispatcher rd=request.getRequestDispatcher(
+		 * "http://localhost:8091/CRUD_UsingTDD/index.jsp"); rd.include(request,
+		 * response);
+		 */
+		
+		out.print("<script type='text/javascript'>");
+		
+		out.print(" window.location='http://localhost:8080/OnlineWaterParkBooking/edit_entry.jsp'");
+		
+		out.print("</script>");
+	
+		
+		
+		
+	}
+	
 	
 	protected void UserLogin (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 {
@@ -186,6 +424,16 @@ public class Process extends HttpServlet {
 							out.print("</script >");
 
 					 }
+				
+				/*
+				 * else { out.print("<script type='text/javascript'>"); out.
+				 * print(" window.location='http://localhost:8080/OnlineWaterParkBooking/login.jsp' "
+				 * );
+				 * 
+				 * 
+				 * out.print("</script >"); }
+				 */
+				 
 				 }
 				 
 		} catch (Exception e) {

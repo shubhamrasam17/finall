@@ -71,26 +71,25 @@ font-size:40px;
 <%
 	
 		IDAO dbConnection = new DB_Connection();
-		List<UserModel> userlist = dbConnection.getRecords();
+		List<UserModel> userlist = dbConnection.gettiming();
 		if (userlist.size() > 0) {
 	%>
 	<br>
 	<br>
-	<center>
+	<!-- <center>
 <button class="btn btn-dark add"><a href='registration.jsp'><span id="plus">+</span>ADD NEW</a></button>
-	</center>
+	</center> -->
 	<br />
 	<div >
 	<table class="table table-dark ">
 		<thead class=" theadcss">
 			<tr >
-				<th>ID</th>
-				<th >firstNAME</th>
-				 <th >lastNAME</th>
-				 <th>EMAIL</th>
-				 <th>USERNAME</th>
-				 <th>PASSWORD</th>
-				 <th>MOBILE</th>
+			
+				<th >ID</th>
+			
+				<th >DAYS</th>
+				 <th >OPERATIONAL_HOURS</th>
+
 				<th colspan="4" >PERFORM OPERATION</th> 
 			</tr>
 		</thead>
@@ -100,43 +99,28 @@ font-size:40px;
 			%>
 			<tr>
 
-				<td>
+				<td >
 					<%
-						out.print(model.getId());
+						out.print(model.getIid());
+					%>
+				</td>
+				
+				
+				<td >
+					<%
+						out.print(model.getDays());
 					%>
 				</td>
 				<td >
 					<%
-						out.print(model.getFname());
+						out.print(model.getHours());
 					%>
 				</td>
-				<td >
-					<%
-						out.print(model.getLname());
-					%>
-				</td>
-				<td >
-					<%
-						out.print(model.getEmail());
-					%>
-				</td>
-				<td >
-					<%
-						out.print(model.getUname());
-					%>
-				</td><td >
-					<%
-						out.print(model.getPassword());
-					%>
-				</td><td >
-					<%
-						out.print(model.getMobile());
-					%>
-				</td>
+				
 			
-			<td><button type="button"  class="btn btn-success rounded-circlev view"><a href="viewById.jsp?userId=<%=model.getId()%>" style="color:white;">View</a></button></td>
-			<td><button type="button"  class="btn btn-warning rounded-circlee edit"><a href="editById.jsp?userId=<%=model.getId()%>" style="color:white;">Edit</a></button></td>
-			<td><button type="button"  class="btn btn-danger  rounded-circled delete"><a href="#" onclick="askConfirm('<%=model.getId()%>','<%=model.getFname()%>')" style="color:white;">Delete</a></button><td>
+			<td><button type="button"  class="btn btn-success rounded-circlev view"><a href="add_parktiming.jsp">add</a></button></td>
+			<td><button type="button"  class="btn btn-warning rounded-circlee edit"><a href="edittiming.jsp?userId=<%=model.getIid()%> ">Edit</a></button></td>
+			<td><button type="button"  class="btn btn-danger  rounded-circled delete"><a href="#" onclick="askConfirm('<%=model.getIid()%>')">Delete</a></button><td>
 			</tr>
 			<%
 				}
@@ -156,14 +140,14 @@ font-size:40px;
 	
 	
 	<script type="text/javascript" rel="javascript">
-	function askConfirm(userId,userNm)
+	function askConfirm(userId)
 	{
 				
-				var response=confirm("DO YOU WANT TO DELETE RECORD OF"+userNm+"!!!!");
+				var response=confirm("DO YOU WANT TO DELETE RECORD OF!!!!");
 					if(response)
 						{
 						
-						window.location="http://localhost:8080/OnlineWaterParkBooking/deleteById.jsp?userId="+userId;
+						window.location="http://localhost:8080/OnlineWaterParkBooking/deletetiming.jsp?userId="+userId;
 						}
 	
 	}
